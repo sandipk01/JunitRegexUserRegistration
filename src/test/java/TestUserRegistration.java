@@ -37,4 +37,16 @@ public class TestUserRegistration {
         boolean result=UserRegistration.isEmailValidate(".sandipk01@.gmail.com");
         Assert.assertFalse(result);
     }
+    //validating mobile number with two digit county code space and 10 digit number
+    @Test
+    public void givenMobileNumber_WhenValid_ThenTrue() {
+        boolean result=UserRegistration.isMobileNumberValidate("91 8874587458");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenMobileNumber_WhenInvalid_ThenFalse() {
+        boolean result=UserRegistration.isMobileNumberValidate("91874587458");
+        Assert.assertFalse(result);
+    }
+
 }
