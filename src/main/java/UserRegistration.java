@@ -6,6 +6,10 @@ public class UserRegistration {
     public static boolean isFirstNameInitialCapital(String firstName){
         return validator("^[A-Z]{1}[a-z]{2,}$",firstName);
     }
+    //validating last name initial capital letter and at least 3 character should enter
+    public static boolean isLastNameInitialCapital(String lastName){
+        return validator("^[A-Z]{1}[a-z]{2,}$",lastName);
+    }
     //common validation function
     public static boolean validator(String validationPattern,String input)
     {
@@ -27,5 +31,6 @@ public class UserRegistration {
     }
     public static void main(String[] args) {
         System.out.println("First Name is : " + result(isFirstNameInitialCapital("Sandip")));
+        System.out.println("Last Name is :"+result(isLastNameInitialCapital("Kengar")));
     }
 }
