@@ -24,5 +24,17 @@ public class TestUserRegistration {
         boolean result=UserRegistration.isLastNameInitialCapital("kengar");
         Assert.assertFalse(result);
     }
-
+    //validating email address
+    @Test
+    public void givenEmail_WhenValid_ThenTrue()
+    {
+        boolean result=UserRegistration.isEmailValidate("sandipk01@gmail.com");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenEmail_WhenInvalid_ThenFalse()
+    {
+        boolean result=UserRegistration.isEmailValidate(".sandipk01@.gmail.com");
+        Assert.assertFalse(result);
+    }
 }
