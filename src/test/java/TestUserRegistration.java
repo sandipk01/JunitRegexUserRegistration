@@ -88,8 +88,19 @@ public class TestUserRegistration {
         Assert.assertTrue(result);
     }
     @Test
-    public void givenPasswordOnlyOneSpecialCharacter_WhenValid_ThenFalse() {
+    public void givenPasswordOnlyOneSpecialCharacter_WhenInvalidValid_ThenFalse() {
         boolean result=UserRegistration.isPasswordHaveSpecialChar("Asjasb8ds55sn");
+        Assert.assertFalse(result);
+    }
+    //password should checked at least one upper character and  number and min 8 characters and only one special character
+    @Test
+    public void givenPasswordAllRules_WhenValid_ThenTrue() {
+        boolean result=UserRegistration.isCombinedAllPassword("Ancd@464gas");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenPasswordAllRules_WhenInvalid_ThenTrue() {
+        boolean result=UserRegistration.isCombinedAllPassword("Ancd@sss");
         Assert.assertFalse(result);
     }
 }
