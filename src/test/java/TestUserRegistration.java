@@ -48,5 +48,15 @@ public class TestUserRegistration {
         boolean result=UserRegistration.isMobileNumberValidate("91874587458");
         Assert.assertFalse(result);
     }
-
+    //password must have at least 8 characters
+    @Test
+    public void givenPasswordMustEightCharacter_WhenValid_ThenTrue() {
+        boolean result=UserRegistration.isPasswordMinEightCharacter("3344Abcsse");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenPasswordMustEightCharacter_WhenInvalid_ThenFalse() {
+        boolean result=UserRegistration.isPasswordMinEightCharacter("3344css");
+        Assert.assertFalse(result);
+    }
 }
