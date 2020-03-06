@@ -26,17 +26,28 @@ public class UserRegistration {
     //password should have at least one upper case character
     public static boolean isPasswordUpperCase(String password)
     {
-        return validator("^(?=.*[A-Z]).{8,}$",password);
+        return validator(".*[A-Z]+.*",password);
     }
     //password should have one number
     public static boolean isPasswordHaveNumber(String password)
     {
-        return validator("^(?=.*[A-Z])(?=.*[0-9]).{8,}$",password);
+        return validator(".*[0-9]+.*",password);
     }
     //password should contain only one Special character
     public static boolean isPasswordHaveSpecialChar(String password)
     {
-        return validator("^(?=.*[A-Z])(?=.*[!@#$%^&*()_+=])(?=.*[0-9]).{8,}$",password);
+        return validator("[a-zA-Z0-9]*[!@#^%&*]{1}[a-zA-Z0-9]*",password);
+    }
+    public static boolean isCombinedAllPassword(String password)
+    {
+        if (isPasswordMinEightCharacter(password) == true && isPasswordUpperCase(password) == true && isPasswordHaveNumber(password) == true && isPasswordHaveSpecialChar(password)==true )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     //common validation function
     public static boolean validator(String validationPattern,String input)
@@ -65,7 +76,8 @@ public class UserRegistration {
         System.out.println("Mobile Number is : "+result(isMobileNumberValidate("91 8857458747")));
         System.out.println("Password must have minimum 8 characters is : "+result(isPasswordMinEightCharacter("ss7ye%Ss")));
         System.out.println("Password at least have one uppercase character : "+result(isPasswordUpperCase("dssPd&aaj")));
-        System.out.println("password should have one number : "+result(isPasswordHaveNumber("Abcd5eas")));
-        System.out.println("password must have only one special character : "+result(isPasswordHaveSpecialChar("A#bcded744")));
+        System.out.println("password should have one number : "+result(isPasswordHaveNumber("bcsAsas5")));
+        System.out.println("password must have only one special character : "+result(isPasswordHaveSpecialChar("Abc74@eas")));
+        System.out.println("password All rules check : "+result(isCombinedAllPassword("Sdjd@hed74")));
     }
 }
