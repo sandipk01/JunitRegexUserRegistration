@@ -2,6 +2,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class TestUserRegistration {
+    String validEmails[]={"abc@yahoo.com","abc-100@yahoo.com","abc.100@yahoo.com",
+            "abc111@abc.com","abc-100@abc.net","abc.100@abc.com.au","abc@1.com","abc@gmail.com.com","abc+100@gmail.com"};
+    String invalidEmails[]= {"abc","abc@.com.my","abc123@gmail.a","abc123@.com","abc123@.com.com",".abc@abc.com",
+            "abc()*@gmail.com","abc@%*.com","abc..2002@gmail.com","abc.@gmail.com ","abc@abc@gmail.com",
+            "abc@gmail.com.1a","abc@gmail.com.aa.au"};
     //validating first name initial capital letter and at least 3 character should enter
     @Test
     public void givenFirstName_WhenValid_ThenTrue() {
@@ -99,8 +104,25 @@ public class TestUserRegistration {
         Assert.assertTrue(result);
     }
     @Test
-    public void givenPasswordAllRules_WhenInvalid_ThenTrue() {
+    public void givenPasswordAllRules_WhenInvalid_ThenFalse() {
         boolean result=UserRegistration.isCombinedAllPassword("Ancd@sss");
         Assert.assertFalse(result);
+    }
+    //All valid invalid email check
+    @Test
+    public void givenAllEmail_WhenValid_ThenTrue()
+    {
+        for( int index=0; index<validEmails.length; index++ ) {
+            boolean result = UserRegistration.isEmailValidate(validEmails[index]);
+            Assert.assertTrue(result);
+        }
+    }
+    @Test
+    public void givenAllEmail_WhenInValid_ThenFalse()
+    {
+        for( int index=0; index<invalidEmails.length; index++ ) {
+            boolean result = UserRegistration.isEmailValidate(invalidEmails[index]);
+            Assert.assertFalse(result);
+        }
     }
 }
