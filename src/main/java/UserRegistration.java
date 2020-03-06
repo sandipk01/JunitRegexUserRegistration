@@ -33,6 +33,11 @@ public class UserRegistration {
     {
         return validator("^(?=.*[A-Z])(?=.*[0-9]).{8,}$",password);
     }
+    //password should contain only one Special character
+    public static boolean isPasswordHaveSpecialChar(String password)
+    {
+        return validator("^(?=.*[A-Z])(?=.*[!@#$%^&*()_+=])(?=.*[0-9]).{8,}$",password);
+    }
     //common validation function
     public static boolean validator(String validationPattern,String input)
     {
@@ -61,5 +66,6 @@ public class UserRegistration {
         System.out.println("Password must have minimum 8 characters is : "+result(isPasswordMinEightCharacter("ss7ye%Ss")));
         System.out.println("Password at least have one uppercase character : "+result(isPasswordUpperCase("dssPd&aaj")));
         System.out.println("password should have one number : "+result(isPasswordHaveNumber("Abcd5eas")));
+        System.out.println("password must have only one special character : "+result(isPasswordHaveSpecialChar("A#bcded744")));
     }
 }
