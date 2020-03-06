@@ -1,5 +1,5 @@
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+        import java.util.regex.Pattern;
 
 public class UserRegistration {
     //validating first name initial capital letter and at least 3 character should enter
@@ -23,6 +23,11 @@ public class UserRegistration {
     {
         return validator("^.{8,}$",password);
     }
+    //password should have at least one upper case character
+    public static boolean isPasswordUpperCase(String password)
+    {
+        return validator("^(?=.*[A-Z]).{8,}$",password);
+    }
     //common validation function
     public static boolean validator(String validationPattern,String input)
     {
@@ -42,11 +47,13 @@ public class UserRegistration {
             return "invalid";
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         System.out.println("First Name is : " + result(isFirstNameInitialCapital("Sandip")));
         System.out.println("Last Name is :"+result(isLastNameInitialCapital("Kengar")));
         System.out.println("Email Address is : "+result(isEmailValidate("sandipk01@gmail.com")));
         System.out.println("Mobile Number is : "+result(isMobileNumberValidate("91 8857458747")));
-        System.out.println("Password must have minimum 8 characters is : "+result(isPasswordMinEightCharacter("aDcdefghij")));
+        System.out.println("Password must have minimum 8 characters is : "+result(isPasswordMinEightCharacter("ss7ye%Ss")));
+        System.out.println("Password at least have one uppercase character : "+result(isPasswordUpperCase("dssPd&aaj")));
     }
 }
