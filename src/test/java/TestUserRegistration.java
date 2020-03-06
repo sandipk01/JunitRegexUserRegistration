@@ -70,5 +70,15 @@ public class TestUserRegistration {
         boolean result=UserRegistration.isPasswordUpperCase("asshsghb");
         Assert.assertFalse(result);
     }
-
+    //password should have at least one number
+    @Test
+    public void givenPasswordAtLeastOneNumber_WhenValid_TheTrue() {
+        boolean result=UserRegistration.isPasswordHaveNumber("Ssdds74d");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenPasswordAtLeastOneNumber_WhenValid_TheFalse() {
+        boolean result=UserRegistration.isPasswordHaveNumber("Ssddsssd");
+        Assert.assertFalse(result);
+    }
 }
