@@ -28,6 +28,11 @@ public class UserRegistration {
     {
         return validator("^(?=.*[A-Z]).{8,}$",password);
     }
+    //password should have one number
+    public static boolean isPasswordHaveNumber(String password)
+    {
+        return validator("^(?=.*[A-Z])(?=.*[0-9]).{8,}$",password);
+    }
     //common validation function
     public static boolean validator(String validationPattern,String input)
     {
@@ -55,5 +60,6 @@ public class UserRegistration {
         System.out.println("Mobile Number is : "+result(isMobileNumberValidate("91 8857458747")));
         System.out.println("Password must have minimum 8 characters is : "+result(isPasswordMinEightCharacter("ss7ye%Ss")));
         System.out.println("Password at least have one uppercase character : "+result(isPasswordUpperCase("dssPd&aaj")));
+        System.out.println("password should have one number : "+result(isPasswordHaveNumber("Abcd5eas")));
     }
 }
