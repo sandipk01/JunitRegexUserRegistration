@@ -72,13 +72,24 @@ public class TestUserRegistration {
     }
     //password should have at least one number
     @Test
-    public void givenPasswordAtLeastOneNumber_WhenValid_TheTrue() {
+    public void givenPasswordAtLeastOneNumber_WhenValid_ThenTrue() {
         boolean result=UserRegistration.isPasswordHaveNumber("Ssdds74d");
         Assert.assertTrue(result);
     }
     @Test
     public void givenPasswordAtLeastOneNumber_WhenValid_TheFalse() {
         boolean result=UserRegistration.isPasswordHaveNumber("Ssddsssd");
+        Assert.assertFalse(result);
+    }
+    //password should contain only one Special character
+    @Test
+    public void givenPasswordOnlyOneSpecialCharacter_WhenValid_ThenTrue() {
+        boolean result=UserRegistration.isPasswordHaveSpecialChar("Asjas#b8ds55sn");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenPasswordOnlyOneSpecialCharacter_WhenValid_ThenFalse() {
+        boolean result=UserRegistration.isPasswordHaveSpecialChar("Asjasb8ds55sn");
         Assert.assertFalse(result);
     }
 }
