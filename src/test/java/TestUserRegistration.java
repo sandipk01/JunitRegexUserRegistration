@@ -59,4 +59,16 @@ public class TestUserRegistration {
         boolean result=UserRegistration.isPasswordMinEightCharacter("3344css");
         Assert.assertFalse(result);
     }
+    //password should have at least one upper case character
+    @Test
+    public void givenPasswordMustUpperCharacter_WhenValid_ThenTrue() {
+        boolean result=UserRegistration.isPasswordUpperCase("asshTghb");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenPasswordMustUpperCharacter_WhenInvalid_ThenFalse() {
+        boolean result=UserRegistration.isPasswordUpperCase("asshsghb");
+        Assert.assertFalse(result);
+    }
+
 }
