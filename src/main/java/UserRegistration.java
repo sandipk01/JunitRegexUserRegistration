@@ -18,6 +18,11 @@ public class UserRegistration {
     public static boolean isMobileNumberValidate(String mobileNumber){
         return validator("^[0-9]{2}[ ]{1}[0-9]{10}$",mobileNumber);
     }
+    //password minimum 8 character
+    public static boolean isPasswordMinEightCharacter(String password)
+    {
+        return validator("^.{8,}$",password);
+    }
     //common validation function
     public static boolean validator(String validationPattern,String input)
     {
@@ -42,5 +47,6 @@ public class UserRegistration {
         System.out.println("Last Name is :"+result(isLastNameInitialCapital("Kengar")));
         System.out.println("Email Address is : "+result(isEmailValidate("sandipk01@gmail.com")));
         System.out.println("Mobile Number is : "+result(isMobileNumberValidate("91 8857458747")));
+        System.out.println("Password must have minimum 8 characters is : "+result(isPasswordMinEightCharacter("aDcdefghij")));
     }
 }
